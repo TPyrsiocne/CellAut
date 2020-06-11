@@ -1,0 +1,126 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3796,        118]
+NotebookOptionsPosition[      3269,        100]
+NotebookOutlinePosition[      3623,        116]
+CellTagsIndexPosition[      3580,        113]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"board", "=", 
+   RowBox[{"SparseArray", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"15", ",", "15"}], "}"}], "\[Rule]", "1"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"30", ",", "30"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dna", "=", 
+   RowBox[{"RandomInteger", "[", 
+    RowBox[{"1", ",", "512"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.800839251850027*^9, 3.8008392785591917`*^9}, {
+  3.800839318408887*^9, 3.800839367321183*^9}},
+ CellLabel->
+  "In[811]:=",ExpressionUUID->"b2ba763d-6fda-41a9-bd4f-804ee7162cb4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"mass", "/@", 
+   RowBox[{
+    RowBox[{"evolveTrace", "[", 
+     RowBox[{"dna", ",", "18"}], "]"}], "[", "board", "]"}]}], "]"}]], "Input",\
+
+ CellChangeTimes->{{3.800839374111718*^9, 3.800839397937845*^9}, {
+  3.800839454631489*^9, 3.800839455572218*^9}, {3.800839525599289*^9, 
+  3.800839643301794*^9}, {3.800839708993414*^9, 3.800839719072001*^9}},
+ CellLabel->
+  "In[813]:=",ExpressionUUID->"be9382f2-0afd-4c32-842d-aad44efdfb32"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], PointBox[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQDQEf7FFpBgcIJQKlOaC0GpQWgNJGqOoaHKB8CSjt
+AqVloPKeUL4ClA6E0kpQ+TAoXwVCO0Sj2ZsApTUg9IEkKF8LQiukQfk6UPMy
+oHw9qHwelG8AoQMKoHxDqH2FqP5aUALlG0PoglIHAIuRGmA=
+      
+      "]]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 19.}, {0, 343.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.800839379706069*^9, 3.8008394698237658`*^9}, {
+  3.8008395231640053`*^9, 3.800839643921721*^9}, {3.800839703345745*^9, 
+  3.800839727064527*^9}},
+ CellLabel->
+  "Out[813]=",ExpressionUUID->"4fd0f9d9-8542-4aa6-b00a-38d0520a91e5"]
+}, Open  ]]
+},
+WindowSize->{808, 851},
+WindowMargins->{{Automatic, 64}, {45, Automatic}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 622, 18, 52, "Input",ExpressionUUID->"b2ba763d-6fda-41a9-bd4f-804ee7162cb4"],
+Cell[CellGroupData[{
+Cell[1205, 42, 485, 11, 30, "Input",ExpressionUUID->"be9382f2-0afd-4c32-842d-aad44efdfb32"],
+Cell[1693, 55, 1560, 42, 244, "Output",ExpressionUUID->"4fd0f9d9-8542-4aa6-b00a-38d0520a91e5"]
+}, Open  ]]
+}
+]
+*)
+
