@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      3113,         95]
-NotebookOptionsPosition[      2804,         81]
-NotebookOutlinePosition[      3160,         97]
-CellTagsIndexPosition[      3117,         94]
+NotebookDataLength[      5983,        171]
+NotebookOptionsPosition[      5673,        157]
+NotebookOutlinePosition[      6029,        173]
+CellTagsIndexPosition[      5986,        170]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -56,18 +56,91 @@ Cell[BoxData[{
   RowBox[{"Plus", "@@", 
    RowBox[{"Flatten", "@", "brd"}]}]}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"visulaiseTrace", "[", "trace_", "]"}], ":=", 
-  RowBox[{"Manipulate", "[", 
-   RowBox[{
-    RowBox[{"ArrayPlot", "[", 
-     RowBox[{"trace", "[", 
-      RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
-    RowBox[{"{", 
+  RowBox[{
+   RowBox[{"visulaiseTrace", "[", "trace_", "]"}], ":=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"ArrayPlot", "[", 
+      RowBox[{"trace", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1"}], "}"}], ",", "1", ",", 
+       RowBox[{"Length", "@", "trace"}], ",", "1"}], "}"}]}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"mutProb", "[", 
+    RowBox[{"l_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"N", "[", 
+    FractionBox[
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"PolyGamma", "[", 
+       RowBox[{"0", ",", 
+        RowBox[{"1", "+", "n"}]}], "]"}]], 
      RowBox[{
-      RowBox[{"{", 
-       RowBox[{"i", ",", "1"}], "}"}], ",", "1", ",", 
-      RowBox[{"Length", "@", "trace"}], ",", "1"}], "}"}]}], 
-   "]"}]}]}], "Input",
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"PolyGamma", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{"1", "+", "l", "-", "n"}]}], "]"}]], "+", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"PolyGamma", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{"1", "+", "n"}]}], "]"}]]}]], "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "returns", " ", "porbiblity", " ", "to", " ", "mutate", " ", "any", " ", 
+     "char", " ", "in", " ", "a", " ", "string", " ", "of", " ", "length", 
+     " ", "l", " ", "so", " ", "that", " ", "on", " ", "average", " ", "n", 
+     " ", "end", " ", "up", " ", 
+     RowBox[{"mutated", ".", " ", "To"}], " ", "test", " ", "and", " ", 
+     "understand", " ", "run", " ", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", "p"}], "=", 
+    RowBox[{
+     RowBox[{"mutProb", "[", 
+      RowBox[{"512", ",", "17"}], "]"}], "\[IndentingNewLine]", 
+     RowBox[{"Histogram", "@", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Plus", "@@", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"#", "<", "p"}], ",", "1", ",", "0"}], "]"}], "&"}], "/@", 
+           RowBox[{"RandomReal", "[", 
+            RowBox[{"1", ",", "512"}], "]"}]}], ")"}]}], ",", "10000"}], 
+       "]"}]}]}]}], "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mutate", "[", 
+   RowBox[{"dna_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"p", "=", 
+      RowBox[{"mutProb", "[", 
+       RowBox[{
+        RowBox[{"Length", "@", "dna"}], ",", "n"}], "]"}]}], "}"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Random", "[", "]"}], "<", "p"}], ",", 
+        RowBox[{"Mod", "[", 
+         RowBox[{
+          RowBox[{"#", "+", "1"}], ",", "2"}], "]"}], ",", "#"}], "]"}], 
+      "&"}], "/@", "dna"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Mutates", " ", "all", " ", "locations", " ", "with", " ", "equal", " ", 
+    "probibility", " ", "so", " ", "that", " ", "on", " ", "average", " ", 
+    "n", " ", "are", " ", "chaged"}], "*)"}]}]}], "Input",
  CellChangeTimes->{{3.80083907397791*^9, 3.8008391013726187`*^9}, {
    3.800839137343327*^9, 3.8008391548789873`*^9}, {3.800839193730011*^9, 
    3.800839246824998*^9}, {3.800839296663774*^9, 3.8008393053110733`*^9}, {
@@ -75,9 +148,12 @@ Cell[BoxData[{
    3.8008394734659977`*^9}, {3.80083951847465*^9, 3.800839519920052*^9}, {
    3.800839556279985*^9, 3.800839556821521*^9}, {3.8008396189152603`*^9, 
    3.8008396354877653`*^9}, 3.800839698642233*^9, {3.8008399687931423`*^9, 
-   3.800840020838358*^9}},
- CellLabel->
-  "In[973]:=",ExpressionUUID->"7fa75f64-e692-4ecd-8e33-334e7a3c6775"]
+   3.800840020838358*^9}, {3.8008413074597282`*^9, 3.80084140622875*^9}, {
+   3.800841572556229*^9, 3.800841581538858*^9}, {3.800841631283113*^9, 
+   3.800841698242552*^9}, {3.8008417332313766`*^9, 3.800841848878305*^9}, {
+   3.8008418832413683`*^9, 
+   3.8008419037205687`*^9}},ExpressionUUID->"7fa75f64-e692-4ecd-8e33-\
+334e7a3c6775"]
 },
 WindowSize->{808, 851},
 WindowMargins->{{Automatic, -6}, {-294, Automatic}},
@@ -96,7 +172,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 2242, 59, 136, "Input",ExpressionUUID->"7fa75f64-e692-4ecd-8e33-334e7a3c6775"]
+Cell[558, 20, 5111, 135, 457, "Input",ExpressionUUID->"7fa75f64-e692-4ecd-8e33-334e7a3c6775"]
 }
 ]
 *)
